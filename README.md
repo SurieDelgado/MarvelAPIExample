@@ -24,7 +24,8 @@ Make sure you have the following software installed on your machine:
 
 Obtain an API key from the Marvel Developer Portal (https://developer.marvel.com/).
 
-add the following content, replacing <YOUR_API_KEY> with your actual API key:
+2. add the following content, replacing <YOUR_API_KEY> with your actual API key:
+
     ```bash
     export const environment = {
       production: false,
