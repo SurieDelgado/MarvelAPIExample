@@ -1,27 +1,56 @@
-# MarvelAlgartech
+# Project Name
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+This project is an Angular application that utilizes the Marvel API to display data related to Marvel superheroes. It features a dark and light theme and includes pagination for easy navigation through the data.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To get started with this project, follow the steps below:
 
-## Code scaffolding
+### Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Make sure you have the following software installed on your machine:
 
-## Build
+- Node.js (version X.X.X or higher)
+- Angular CLI (version 13.3.5 or higher)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installation
 
-## Running unit tests
+1. Clone the repository:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```bash
+   git clone https://github.com/SurieDelgado/MarvelAPIExample.git
+   npm install
 
-## Running end-to-end tests
+Obtain an API key from the Marvel Developer Portal (https://developer.marvel.com/).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+add the following content, replacing <YOUR_API_KEY> with your actual API key:
 
-## Further help
+export const environment = {
+  production: false,
+  url : 'https://gateway.marvel.com/v1/public/',
+  apiKey: '<YOUR_API_KEY>'
+};
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Start the development server:e
+ng serve
+
+Open your browser and navigate to http://localhost:4200 to see the application in action.
+
+Features
+Dark and light theme: The application provides a toggle switch to switch between dark and light themes, providing a personalized user experience.
+
+Pagination: The application implements pagination to display Marvel superheroes in a user-friendly manner, allowing users to navigate through the data easily.
+
+Built With
+Angular CLI - A powerful development platform for creating web applications using TypeScript.
+Marvel API - A RESTful API that provides access to the vast Marvel Comics universe.
+
+Contributing
+Contributions to this project are welcome. If you encounter any issues or have suggestions for improvements, please feel free to submit a pull request.
+
+License
+This project is licensed under the MIT License.
+
+Acknowledgments
+Angular - The web application framework used in this project.
+Marvel - The creators of the Marvel Comics universe.
