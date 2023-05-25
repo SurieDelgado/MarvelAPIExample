@@ -1,0 +1,57 @@
+<p>{{character.description}}</p>
+
+<a class="nav-link mx-2 my-3" href="javascript:void(0)" data-bs-toggle="collapse"
+    [attr.data-bs-target]="'#collapseExampleComic'+character.id" aria-expanded="false"
+    [attr.aria-controls]="'collapseExampleComic'+character.id">
+    <i class="bi bi-book-fill"></i>
+    Show/Hide related comics
+</a>
+
+<div class="collapse" [id]="'collapseExampleComic'+character.id">
+    <div class="image-container mx-2">
+        <ng-container *ngFor="let comic of character.comics.items">
+            <p>{{comic.name}}</p>
+        </ng-container>
+    </div>
+</div>
+<hr>
+
+<div *ngIf="character.series.items.length == 0" class="d-flex flex-row mx-2 my-3">
+    <i class="bi bi-collection-fill"></i>
+    <p>&nbsp;This character has no related series</p>
+</div>
+
+<a *ngIf="character.series.items.length > 0" class="nav-link mx-2 my-3" href="javascript:void(0)"
+    data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseExampleSerie'+character.id" aria-expanded="false"
+    [attr.aria-controls]="'collapseExampleSerie'+character.id">
+    <i class="bi bi-collection-fill"></i>
+    Show/Hide related series
+</a>
+
+<div class="collapse" [id]="'collapseExampleSerie'+character.id">
+    <div class="image-container mx-2">
+        <ng-container *ngFor="let serie of character.series.items">
+            <p>{{serie.name}}</p>
+        </ng-container>
+    </div>
+</div>
+<hr>
+
+<div *ngIf="character.events.items.length == 0" class="d-flex flex-row mx-2 my-3">
+    <i class="bi bi-calendar3-event-fill"></i>
+    <p>&nbsp;This character has no related events</p>
+</div>
+<a *ngIf="character.events.items.length > 0" class="nav-link mx-2 my-3" href="javascript:void(0)"
+    data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseExampleEvent'+character.id" aria-expanded="false"
+    [attr.aria-controls]="'collapseExampleEvent'+character.id">
+    <i class="bi bi-calendar3-event-fill"></i>
+    Show/Hide related events
+</a>
+
+<div class="collapse" [id]="'collapseExampleEvent'+character.id">
+    <div class="image-container mx-2">
+        <ng-container *ngFor="let event of character.events.items">
+            <p>{{event.name}}</p>
+        </ng-container>
+    </div>
+</div>

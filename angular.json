@@ -31,9 +31,26 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.less",
+              {
+                  "input": "src/styles/light.theme.less",
+                  "bundleName": "light",
+                  "inject": true
+              },
+              {
+                  "input": "src/styles/dark.theme.less",
+                  "bundleName": "dark",
+                  "inject": false
+              },
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {

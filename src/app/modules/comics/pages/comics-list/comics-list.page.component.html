@@ -1,0 +1,49 @@
+<div>
+    <div *ngFor="let comic of comics" #scroll
+        class="card mx-auto d-flex flex-column flex-md-row flex-lg-row flex-xl-row my-3">
+        <div class="image-container">
+            <img [src]="comic.thumbnail.path+'.'+comic.thumbnail.extension" 
+                class="card-img-top object-fit-contain">
+
+                
+        </div>
+        <div class="card-body">
+            <div class="d-flex flex-column">
+                <h4>{{comic.title}}</h4>
+                <p class="py-0">{{comic.modified | date}}</p>
+            </div>
+            <p>{{comic.description}}</p>
+            <div *ngIf="comic.creators.items.length == 0" class="d-flex flex-row mx-2 my-3">
+                <i class="bi bi-collection-fill"></i>
+                <p>&nbsp;No information available</p>
+            </div>
+
+            <div *ngIf="comic.creators.items.length > 0">
+                <a class="nav-link mx-2 my-3" href="javascript:void(0)" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapseExampleComic'+comic.id" aria-expanded="false"
+                    [attr.aria-controls]="'collapseExampleComic'+comic.id">
+                    <i class="bi bi-person-fill"></i>
+                    Creators
+                </a>
+                <div class="collapse" [id]="'collapseExampleComic'+comic.id">
+                    <div class="image-container mx-2">
+                        <div class="d-flex flex-column my-2" *ngFor="let creator of comic.creators.items">
+                            <span>{{creator.name}} </span>
+                            <span class="role">{{creator.role}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-center" *ngIf="endOfResults">
+        <i class="bi bi-send-fill mx-3"></i>
+        <h5 class="text-center">End of the results</h5>
+    </div>
+    <div class="w-100 text-center my-5" *ngIf="loadingData && !endOfResults">
+        <div class="spinner-border text-dark mx-auto" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>

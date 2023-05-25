@@ -1,0 +1,54 @@
+<div class="w-100 text-center my-5" *ngIf="loadingData">
+    <div class="spinner-border text-dark mx-auto" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!this.character && !loadingData">
+    <h1 class="text-center my-5">404 Character not found</h1>
+</div>
+
+<div *ngIf="this.character"
+    class="d-flex flex-column">
+    <div class="image-container mx-auto text-center my-4">
+        <img [src]="character.thumbnail.path+'.'+character.thumbnail.extension" 
+            class="h-100">
+        <div class="d-flex flex-column">
+            <h4>{{character.name}}</h4>
+            <p >{{character.modified | date}}</p>
+            <a href="javascript:void(0)" class="nav-link" (click)="goToComics()">
+                <i class="bi bi-arrow-up-right-square mx-2"></i>
+                <h6>See detailed related comics</h6>
+            </a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="mx-5 py-4">
+        <app-character-info [character]="character"></app-character-info>
+    </div>
+    
+    <div class="d-flex flex-column">
+        <a *ngIf="character.urls.length > 0"
+            [href]="character.urls[0].url"
+            target="_blank"
+            class="d-flex nav-link">
+            <i class="bi bi-ticket-detailed-fill ms-5 me-2 ps-2"></i>
+            <p>Details</p>
+        </a>
+        <a *ngIf="character.urls.length > 1"
+            [href]="character.urls[1].url"
+            target="_blank"
+            class="d-flex nav-link">
+            <i class="bi bi-wikipedia ms-5 me-2 ps-2"></i>
+            <p>Wiki</p>
+        </a>
+        <a *ngIf="character.urls.length > 2"
+            [href]="character.urls[2].url"
+            target="_blank"
+            class="d-flex nav-link">
+            <i class="bi bi-book-half ms-5 me-2 ps-2"></i>
+            <p>Comic Link</p>
+        </a>
+    </div>
+</div>

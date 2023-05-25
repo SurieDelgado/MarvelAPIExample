@@ -1,0 +1,81 @@
+<div>
+    <div *ngIf="showFilters">
+        <form [formGroup]="filtersForm">
+            <div class="d-flex flex-column w-75 justify-content-center mx-auto my-3">
+                <div class="d-flex flex-row justify-content-center">
+                    <input class="form-check-input" type="radio" value="asc"
+                        formControlName="sort"
+                        id="flexRadioDefault1">
+                    <h6 class="me-5"> A-Z </h6>
+                    
+                    <input class="form-check-input" type="radio" value="dsc"
+                        formControlName="sort"
+                        id="flexRadioDefault2" checked>
+                    <h6> Z-A </h6>
+                </div>
+
+                <div class="d-flex flex-row justify-content-center">
+                    <input type="text" class="form-control mx-1" placeholder="First letter" formControlName="initial">
+                    <input type="text" class="form-control mx-1" placeholder="Name" formControlName="name">
+                </div>
+                <select formControlName="sortBy" class="form-select my-2">
+                    <option selected value=null>Sort by</option>
+                    <option value="name">Name</option>
+                    <option value="modified">Date</option>
+                </select>
+
+                <a href="javascript:void(0)"
+                    class="nav-link mx-auto my-3"
+                    type="submit"
+                    (click)="onFilterSubmit()">
+                    <i class="bi bi-check2-circle"></i>
+                    Apply fliters
+                </a>
+                <a href="javascript:void(0)"
+                    class="nav-link mx-auto my-3"
+                    type="submit"
+                    (click)="onFilterClean()">
+                    <i class="bi bi-archive-fill"></i>
+                    Clean filters
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <div class="d-flex flex-column text-center filters my-5"
+        (click)="showHideFilter()">
+        <i class="bi bi-search"></i>
+        <h6 *ngIf="showFilters">Hide filters</h6>
+        <h6 *ngIf="!showFilters">Show filters</h6>
+    </div>
+
+    <div *ngFor="let character of characters" #scroll
+        class="card mx-auto d-flex flex-column flex-md-row flex-lg-row flex-xl-row my-3">
+        <div class="image-container">
+            <img [src]="character.thumbnail.path+'.'+character.thumbnail.extension" 
+                class="card-img-top object-fit-contain">
+        </div>
+        <div class="card-body">
+            <div class="d-flex flex-column">
+                <a href="javascript:void(0)"
+                    (click)="goToCharacter(character.id)"
+                    class="d-flex flex-row nav-link">
+                    <h4>{{character.name}}</h4>
+                    <i class="bi bi-arrow-up-right-square mx-2"></i>
+                </a>
+                <p class="py-0">{{character.modified | date}}</p>
+            </div>
+            <app-character-info [character]=" character"></app-character-info>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-center" *ngIf="endOfResults">
+        <i class="bi bi-send-fill mx-3"></i>
+        <h5 class="text-center">End of the results</h5>
+    </div>
+    <div class="w-100 text-center my-5" *ngIf="loadingData && !endOfResults">
+        <div class="spinner-border text-dark mx-auto" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
