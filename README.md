@@ -1,4 +1,5 @@
-# Project Name
+# ANGULAR MARVEL API EXAMPLE
+By Surié Delgado
 
 This project is an Angular application that utilizes the Marvel API to display data related to Marvel superheroes. It features a dark and light theme and includes pagination for easy navigation through the data.
 
@@ -24,33 +25,33 @@ Make sure you have the following software installed on your machine:
 Obtain an API key from the Marvel Developer Portal (https://developer.marvel.com/).
 
 add the following content, replacing <YOUR_API_KEY> with your actual API key:
+    ```bash
+    export const environment = {
+      production: false,
+      url : 'https://gateway.marvel.com/v1/public/',
+      apiKey: '<YOUR_API_KEY>'
+    };
 
-export const environment = {
-  production: false,
-  url : 'https://gateway.marvel.com/v1/public/',
-  apiKey: '<YOUR_API_KEY>'
-};
-
-Start the development server:e
+Start the development server:
 ng serve
 
 Open your browser and navigate to http://localhost:4200 to see the application in action.
 
-Features
+#Features
 Dark and light theme: The application provides a toggle switch to switch between dark and light themes, providing a personalized user experience.
 
 Pagination: The application implements pagination to display Marvel superheroes in a user-friendly manner, allowing users to navigate through the data easily.
 
-Built With
+#Built With
 Angular CLI - A powerful development platform for creating web applications using TypeScript.
 Marvel API - A RESTful API that provides access to the vast Marvel Comics universe.
 
-Contributing
+#Contributing
 Contributions to this project are welcome. If you encounter any issues or have suggestions for improvements, please feel free to submit a pull request.
 
-License
+#License
 This project is licensed under the MIT License.
 
-Acknowledgments
+#Acknowledgments
 Angular - The web application framework used in this project.
 Marvel - The creators of the Marvel Comics universe.
