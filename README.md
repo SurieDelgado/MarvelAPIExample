@@ -38,21 +38,21 @@ ng serve
 
 Open your browser and navigate to http://localhost:4200 to see the application in action.
 
-#Features
+## Features
 Dark and light theme: The application provides a toggle switch to switch between dark and light themes, providing a personalized user experience.
 
 Pagination: The application implements pagination to display Marvel superheroes in a user-friendly manner, allowing users to navigate through the data easily.
 
-#Built With
+## Built With
 Angular CLI - A powerful development platform for creating web applications using TypeScript.
 Marvel API - A RESTful API that provides access to the vast Marvel Comics universe.
 
-#Contributing
+## Contributing
 Contributions to this project are welcome. If you encounter any issues or have suggestions for improvements, please feel free to submit a pull request.
 
-#License
+## License
 This project is licensed under the MIT License.
 
-#Acknowledgments
+## Acknowledgments
 Angular - The web application framework used in this project.
 Marvel - The creators of the Marvel Comics universe.
